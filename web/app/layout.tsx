@@ -13,7 +13,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const site = process.env.NEXT_PUBLIC_SITE_URL ?? "https://localhost:3000";
+const site =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://snood-bust-a-move.vercel.app";
 const baseAppId = process.env.NEXT_PUBLIC_BASE_APP_ID;
 
 export const metadata: Metadata = {

@@ -15,7 +15,8 @@ const connectors = [
             name: "Snood",
             description: "Neon bubble shooter on Base",
             url:
-              process.env.NEXT_PUBLIC_SITE_URL ?? "https://localhost:3000",
+              process.env.NEXT_PUBLIC_SITE_URL ??
+              "https://snood-bust-a-move.vercel.app",
             icons: ["/icon.jpg"],
           },
           showQrModal: true,

@@ -2,6 +2,8 @@
 
 Mobile-first **Next.js** web app (bubble-shooter mechanics + daily **check-in** on Base) with **ERC-8021** builder attribution via `ox`.
 
+**Production:** [snood-bust-a-move.vercel.app](https://snood-bust-a-move.vercel.app)
+
 ## Layout
 
 - **`web/`** — Next.js App Router (Vercel **Root Directory** = `web`)
@@ -21,7 +23,7 @@ cd contracts
 forge script script/Deploy.s.sol --rpc-url $BASE_RPC_URL --broadcast
 ```
 
-Copy the deployed address to `NEXT_PUBLIC_CHECK_IN_CONTRACT_ADDRESS` in Vercel / `.env.local`.
+Deployed **CheckIn** (Base mainnet): [`0xd4D6473FA818d0415b66E9B7E99D0d3c6D1d5838`](https://basescan.org/address/0xd4D6473FA818d0415b66E9B7E99D0d3c6D1d5838) — already set in `.env.example`; override in `web/.env.local` / Vercel if you redeploy.
 
 ## Web
 
