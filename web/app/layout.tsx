@@ -16,7 +16,9 @@ const geistMono = Geist_Mono({
 const site =
   process.env.NEXT_PUBLIC_SITE_URL ??
   "https://snood-bust-a-move.vercel.app";
-const baseAppId = process.env.NEXT_PUBLIC_BASE_APP_ID;
+/** Base.dev app id (public); env overrides for other environments */
+const baseAppId =
+  process.env.NEXT_PUBLIC_BASE_APP_ID ?? "69c94b2f8014f880e22dd2e8";
 
 export const metadata: Metadata = {
   title: "Snood — neon bubbles on Base",
@@ -33,9 +35,6 @@ export const metadata: Metadata = {
     icon: "/icon.jpg",
     apple: "/icon.jpg",
   },
-  ...(baseAppId
-    ? { other: { "base:app_id": baseAppId } as Record<string, string> }
-    : {}),
 };
 
 export default function RootLayout({
@@ -45,6 +44,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="base:app_id" content={baseAppId} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
