@@ -4,6 +4,18 @@ Mobile-first **Next.js** web app (bubble-shooter mechanics + daily **check-in** 
 
 **Production:** [snood-bust-a-move.vercel.app](https://snood-bust-a-move.vercel.app)
 
+### Vercel: fix `404` / Base.dev “Failed to fetch URL”
+
+The Next.js app lives in **`web/`**. If Vercel’s **Root Directory** is the repo root (`.`), the deployment will **not** serve the app — you get **404** and Base.dev cannot read `<meta name="base:app_id" …>`.
+
+1. Open [Vercel](https://vercel.com) → your project → **Settings** → **General**.
+2. Under **Root Directory**, click **Edit**, set **`web`**, save.
+3. **Redeploy** the latest production deployment (Deployments → ⋮ → Redeploy).
+4. Check: `curl -sI https://snood-bust-a-move.vercel.app` should return **`200`**; page HTML must contain `base:app_id`.
+5. Retry **Verify** on [Base.dev](https://www.base.dev).
+
+In **Settings → Environment Variables**, set the same `NEXT_PUBLIC_*` values as in `web/.env.example` for **Production**.
+
 ## Layout
 
 - **`web/`** — Next.js App Router (Vercel **Root Directory** = `web`)
